@@ -1,866 +1,2097 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Mahendar Pothatla | Data Analyst Portfolio</title>
- <style>
- * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- }
-:root {
- - primary: #2563eb;
- - primary-dark: #1e40af;
- - secondary: #0f172a;
- - accent: #06b6d4;
- - text: #334155;
- - text-light: #64748b;
- - bg: #ffffff;
- - bg-light: #f8fafc;
- - border: #e2e8f0;
- }
-body {
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- line-height: 1.6;
- color: var( - text);
- overflow-x: hidden;
- }
-.container {
- max-width: 1200px;
- margin: 0 auto;
- padding: 0 20px;
- }
-/* Navigation */
- nav {
- background: var( - bg);
- box-shadow: 0 2px 10px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1000;
- transition: all 0.3s ease;
- }
-nav .container {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 1rem 20px;
- }
-.logo {
- font-size: 1.5rem;
- font-weight: bold;
- color: var( - primary);
- }
-.nav-links {
- display: flex;
- gap: 2rem;
- list-style: none;
- }
-.nav-links a {
- text-decoration: none;
- color: var( - text);
- font-weight: 500;
- transition: color 0.3s ease;
- }
-.nav-links a:hover {
- color: var( - primary);
- }
-/* Hero Section */
- .hero {
- background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
- color: white;
- padding: 100px 0;
- text-align: center;
- position: relative;
- overflow: hidden;
- }
-.hero::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
- opacity: 0.3;
- }
-.hero-content {
- position: relative;
- z-index: 1;
- }
-.hero h1 {
- font-size: 3rem;
- margin-bottom: 1rem;
- animation: fadeInUp 0.8s ease;
- }
-.hero .subtitle {
- font-size: 1.3rem;
- margin-bottom: 2rem;
- max-width: 800px;
- margin-left: auto;
- margin-right: auto;
- line-height: 1.8;
- animation: fadeInUp 0.8s ease 0.2s both;
- 
- }
-.cta-button {
- display: inline-block;
- padding: 15px 40px;
- background: white;
- color: var( - primary);
- text-decoration: none;
- border-radius: 50px;
- font-weight: bold;
- font-size: 1.1rem;
- transition: all 0.3s ease;
- animation: fadeInUp 0.8s ease 0.4s both;
- box-shadow: 0 10px 30px rgba(0,0,0,0.2);
- }
-.cta-button:hover {
- transform: translateY(-3px);
- box-shadow: 0 15px 40px rgba(0,0,0,0.3);
- }
-/* Section Styles */
- section {
- padding: 80px 0;
- }
-.section-title {
- text-align: center;
- font-size: 2.5rem;
- margin-bottom: 3rem;
- color: var( - secondary);
- position: relative;
- }
-.section-title::after {
- content: '';
- display: block;
- width: 80px;
- height: 4px;
- background: var( - primary);
- margin: 1rem auto 0;
- border-radius: 2px;
- }
-/* Skills Section */
- .skills-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
- gap: 2rem;
- margin-top: 3rem;
- }
-.skill-category {
- background: var( - bg-light);
- padding: 2rem;
- border-radius: 15px;
- transition: all 0.3s ease;
- border: 2px solid transparent;
- }
-.skill-category:hover {
- transform: translateY(-10px);
- box-shadow: 0 15px 40px rgba(0,0,0,0.1);
- border-color: var( - primary);
- }
-.skill-category h3 {
- color: var( - primary);
- margin-bottom: 1.5rem;
- font-size: 1.5rem;
- display: flex;
- align-items: center;
- gap: 10px;
- }
-.skill-icon {
- font-size: 2rem;
- }
-.skill-item {
- margin-bottom: 1.5rem;
- padding-bottom: 1rem;
- border-bottom: 1px solid var( - border);
- }
-.skill-item:last-child {
- border-bottom: none;
- margin-bottom: 0;
- }
-.skill-name {
- font-weight: 600;
- color: var( - secondary);
- margin-bottom: 0.5rem;
- }
-.skill-example {
- font-size: 0.9rem;
- color: var( - text-light);
- font-style: italic;
- }
-/* Projects Section */
- .projects-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
- gap: 2rem;
- margin-top: 3rem;
- }
-.project-card {
- background: white;
- border-radius: 15px;
- overflow: hidden;
- box-shadow: 0 5px 20px rgba(0,0,0,0.1);
- transition: all 0.3s ease;
- border: 2px solid transparent;
- }
-.project-card:hover {
- transform: translateY(-10px);
- box-shadow: 0 15px 40px rgba(0,0,0,0.15);
- border-color: var( - accent);
- }
-.project-header {
- background: linear-gradient(135deg, var( - primary), var( - accent));
- color: white;
- padding: 2rem;
- }
-.project-title {
- font-size: 1.5rem;
- margin-bottom: 0.5rem;
- }
-.project-impact {
- font-size: 0.9rem;
- opacity: 0.9;
- }
-.project-body {
- padding: 2rem;
- }
-.project-section {
- margin-bottom: 1.5rem;
- }
-.project-section-title {
- font-weight: 600;
- color: var( - primary);
- margin-bottom: 0.5rem;
- font-size: 0.9rem;
- text-transform: uppercase;
- letter-spacing: 1px;
- }
-.project-text {
- color: var( - text);
- line-height: 1.7;
- }
-.tools-used {
- display: flex;
- flex-wrap: wrap;
- gap: 0.5rem;
- margin-top: 1rem;
- }
-.tool-tag {
- background: var( - bg-light);
- padding: 0.4rem 1rem;
- border-radius: 20px;
- font-size: 0.85rem;
- color: var( - primary);
- border: 1px solid var( - border);
- }
-.recruiter-insight {
- background: #fef3c7;
- border-left: 4px solid #f59e0b;
- padding: 1rem;
- margin-top: 1.5rem;
- border-radius: 5px;
- font-size: 0.9rem;
- color: #92400e;
- }
-.project-link {
- display: inline-block;
- margin-top: 1rem;
- padding: 0.8rem 1.5rem;
- background: var( - primary);
- color: white;
- text-decoration: none;
- border-radius: 5px;
- font-weight: 600;
- transition: all 0.3s ease;
- }
-.project-link:hover {
- background: var( - primary-dark);
- transform: translateX(5px);
- }
-/* About Section */
- .about {
- background: var( - bg-light);
- }
-.about-content {
- max-width: 900px;
- margin: 0 auto;
- }
-.about-story {
- font-size: 1.1rem;
- line-height: 1.9;
- margin-bottom: 3rem;
- color: var( - text);
- }
-.strengths-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
- gap: 2rem;
- margin-bottom: 3rem;
- }
-.strength-card {
- background: white;
- padding: 2rem;
- border-radius: 10px;
- box-shadow: 0 5px 15px rgba(0,0,0,0.08);
- }
-.strength-title {
- color: var( - primary);
- font-size: 1.3rem;
- margin-bottom: 1rem;
- }
-.strength-evidence {
- color: var( - text);
- line-height: 1.7;
- }
-.career-goal {
- text-align: center;
- font-size: 1.3rem;
- padding: 2rem;
- background: linear-gradient(135deg, var( - primary), var( - accent));
- color: white;
- border-radius: 10px;
- font-weight: 600;
- }
-/* Contact Section */
- .contact {
- background: var( - secondary);
- color: white;
- }
-.contact .section-title {
- color: white;
- }
-.contact .section-title::after {
- background: var( - accent);
- }
-.contact-content {
- max-width: 600px;
- margin: 0 auto;
- }
-.contact-form {
- display: flex;
- flex-direction: column;
- gap: 1.5rem;
- margin-bottom: 3rem;
- }
-.form-group {
- display: flex;
- flex-direction: column;
- }
-.form-group label {
- margin-bottom: 0.5rem;
- font-weight: 600;
- }
-.form-group input,
- .form-group textarea {
- padding: 1rem;
- border: none;
- border-radius: 5px;
- font-family: inherit;
- font-size: 1rem;
- }
-.form-group textarea {
- min-height: 150px;
- resize: vertical;
- }
-.submit-btn {
- padding: 1rem 2rem;
- background: var( - accent);
- color: white;
- border: none;
- border-radius: 5px;
- font-size: 1.1rem;
- font-weight: bold;
- cursor: pointer;
- transition: all 0.3s ease;
- }
-.submit-btn:hover {
- background: #0891b2;
- transform: translateY(-2px);
- }
-.social-links {
- display: flex;
- justify-content: center;
- gap: 2rem;
- margin-top: 3rem;
- }
-.social-link {
- display: inline-block;
- padding: 1rem 2rem;
- background: rgba(255,255,255,0.1);
- color: white;
- text-decoration: none;
- border-radius: 5px;
- font-weight: 600;
- transition: all 0.3s ease;
- border: 2px solid rgba(255,255,255,0.2);
- }
-.social-link:hover {
- background: rgba(255,255,255,0.2);
- transform: translateY(-3px);
- }
-.recruiter-cta {
- text-align: center;
- margin-top: 3rem;
- font-size: 1.2rem;
- font-style: italic;
- opacity: 0.9;
- }
-/* Footer */
- footer {
- background: #0f172a;
- color: white;
- text-align: center;
- padding: 2rem 0;
- }
-/* Animations */
- @keyframes fadeInUp {
- from {
- opacity: 0;
- transform: translateY(30px);
- }
- to {
- opacity: 1;
- transform: translateY(0);
- }
- }
-/* Responsive */
- @media (max-width: 768px) {
- .hero h1 {
- font-size: 2rem;
- }
-.hero .subtitle {
- font-size: 1.1rem;
- }
-.nav-links {
- gap: 1rem;
- flex-wrap: wrap;
- }
-.section-title {
- font-size: 2rem;
- }
-.projects-grid {
- grid-template-columns: 1fr;
- }
- }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahendar Pothatla | Data Analyst Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #0f172a;
+            --accent: #06b6d4;
+            --accent-light: #22d3ee;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-dark: #f1f5f9;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-light);
+            display: block;
+            -webkit-text-fill-color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 160px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        /* Animated particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 25s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 22s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 19s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 21s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 24s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 17s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1s; animation-duration: 23s; }
+        .particle:nth-child(10) { left: 15%; animation-delay: 3s; animation-duration: 20s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .wave {
+            display: inline-block;
+            animation: wave 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60%, 100% { transform: rotate(0deg); }
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s both;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator a:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator .mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 13px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: white;
+            border-radius: 2px;
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            background: var(--bg-light);
+        }
+
+        .skill-category:nth-child(1) .skill-icon-wrapper { background: rgba(37, 99, 235, 0.1); }
+        .skill-category:nth-child(2) .skill-icon-wrapper { background: rgba(6, 182, 212, 0.1); }
+        .skill-category:nth-child(3) .skill-icon-wrapper { background: rgba(16, 185, 129, 0.1); }
+        .skill-category:nth-child(4) .skill-icon-wrapper { background: rgba(245, 158, 11, 0.1); }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .skill-item {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-example {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--bg-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .project-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:nth-child(2) .project-header { background: var(--gradient-2); }
+        .project-card:nth-child(3) .project-header { background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); }
+        .project-card:nth-child(4) .project-header { background: var(--gradient-3); }
+        .project-card:nth-child(5) .project-header { background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .project-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .project-impact {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-impact-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .project-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .project-section-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-text {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .tools-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tool-tag {
+            background: var(--bg-light);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text);
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tool-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 1rem;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(255,255,255,0.3), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-decorations {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-story {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .about-story p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-story p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .strength-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strength-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+        }
+
+        .strength-card:nth-child(2)::before { background: var(--gradient-2); }
+        .strength-card:nth-child(3)::before { background: linear-gradient(180deg, #10b981, #06b6d4); }
+
+        .strength-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .strength-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .strength-title {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .strength-evidence {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .career-goal {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-goal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .career-goal-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-goal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .career-goal h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .career-goal p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .career-path {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .career-step {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .career-arrow {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--secondary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .contact .section-badge {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--accent-light);
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-item-content h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-content p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-item-content a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: var(--gradient-2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .recruiter-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .recruiter-cta p {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .recruiter-cta span {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0f1a;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-intro {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image-container {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .hero-stat-value {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            nav, .back-to-top, .scroll-indicator {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 0;
+                min-height: auto;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
 </head>
 <body>
- <! - Navigation →
- <nav>
- <div class="container">
- <div class="logo">MAHENDAR POTHATLA</div>
- <ul class="nav-links">
- <li><a href="#home">Home</a></li>
- <li><a href="#skills">Skills</a></li>
- <li><a href="#projects">Projects</a></li>
- <li><a href="#about">About</a></li>
- <li><a href="#contact">Contact</a></li>
- </ul>
- </div>
- </nav>
-<! - Hero Section →
-<section class="hero" id="home">
- <div class="hero-content container">
- <h1> Welcome to my analytics world</h1>
- <p class="subtitle">
- Data Analyst with 3+ years of experience in advanced SQL optimization, predictive analytics, and executive-ready Power BI dashboards. Proven track record: 40% profit improvement, 50% faster data processing, 15% churn reduction through data-driven insights.
- </p>
- <a href="#projects" class="cta-button">View My Projects</a>
- 
- </div>
-</section>
-<! - Skills Section →
-<section id="skills">
- <div class="container">
- <h2 class="section-title">Technical Arsenal</h2>
- <div class="skills-grid">
- <! - Data Analysis →
- <div class="skill-category">
- <h3><span class="skill-icon">📊</span> Data Analysis</h3>
- <div class="skill-item">
- <div class="skill-name">Advanced Excel & Power Query</div>
- <div class="skill-example">Built dynamic financial models processing 100K+ records, reducing manual reporting time from 8 hours to 45 minutes</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Exploratory Data Analysis (EDA)</div>
- <div class="skill-example">Identified hidden customer segments through cohort analysis, enabling targeted campaigns that increased conversion by 22%</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Statistical Analysis & A/B Testing</div>
- <div class="skill-example">Designed experiments validating pricing strategy changes, resulting in 18% revenue lift with 95% confidence</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">KPI Design & Tracking</div>
- <div class="skill-example">Created executive KPI framework monitoring 15 critical metrics, enabling real-time business health assessment</div>
- </div>
- </div>
-<! - Data Engineering →
- <div class="skill-category">
- <h3><span class="skill-icon">🔧</span> Data Engineering Essentials</h3>
- <div class="skill-item">
- <div class="skill-name">SQL Query Optimization</div>
- <div class="skill-example">Refactored complex joins and indexing strategies, reducing query execution time from 45s to 4s (90% improvement)</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">CTEs, Window Functions & Subqueries</div>
- <div class="skill-example">Built rolling 90-day revenue calculations using window functions, replacing error-prone spreadsheet formulas</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Database Design & Normalization</div>
- <div class="skill-example">Designed star schema data warehouse consolidating 5 operational databases, improving reporting consistency by 100%</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">ETL & Data Warehousing</div>
- <div class="skill-example">Automated ETL pipelines using Azure Data Factory, processing 500K daily records with 99.8% accuracy</div>
- </div>
- </div>
-<! - Visualization →
- <div class="skill-category">
- <h3><span class="skill-icon">📈</span> Data Storytelling & Visualization</h3>
- <div class="skill-item">
- <div class="skill-name">Power BI Dashboard Design</div>
- <div class="skill-example">Created executive sales dashboard adopted by C-suite, influencing $2M+ strategic decisions quarterly</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">DAX & Advanced Calculations</div>
- <div class="skill-example">Developed time-intelligence measures (YoY, MoM growth) and dynamic filtering, reducing ad-hoc report requests by 60%</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Data Storytelling</div>
- <div class="skill-example">Translated churn analysis into narrative presentation that convinced leadership to invest $500K in retention program</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Self-Service BI Implementation</div>
- <div class="skill-example">Deployed QR-code enabled reports and Power Apps, increasing stakeholder adoption from 40% to 75%</div>
- </div>
- </div>
-<! - Programming →
- <div class="skill-category">
- <h3><span class="skill-icon">💻</span> Programming & Automation</h3>
- <div class="skill-item">
- <div class="skill-name">Python for Data Analysis</div>
- <div class="skill-example">Automated customer segmentation using pandas and clustering algorithms, reducing analysis time from 3 days to 2 hours</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Data Visualization (Matplotlib, Seaborn)</div>
- <div class="skill-example">Created correlation heatmaps revealing unexpected product bundling opportunities, generating $180K additional revenue</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Predictive Modeling (Scikit-learn)</div>
- <div class="skill-example">Built customer churn prediction model with 82% accuracy, enabling proactive retention efforts that saved 15% at-risk accounts</div>
- </div>
- <div class="skill-item">
- <div class="skill-name">Process Automation (Power Automate)</div>
- <div class="skill-example">Automated 12 repetitive data workflows, freeing 15 hours/week for strategic analysis</div>
- </div>
- </div>
- </div>
- </div>
-</section>
-<! - Projects Section →
-<section id="projects" style="background: var( - bg-light);">
- <div class="container">
- <h2 class="section-title">Business Impact Portfolio</h2>
- <div class="projects-grid">
- <! - Project 1 →
- <div class="project-card">
- <div class="project-header">
- <h3 class="project-title">Customer Churn Prevention System</h3>
- <p class="project-impact">Reduced Customer Attrition by 15% | Saved $240K ARR</p>
- <div class="project-links" style="margin-top: 15px;">
- <a href="https://github.com/mahendra1729" target="_blank" class="card-link" style="color: var( - primary-color); text-decoration: none; font-weight: bold;">
- View Project 📊
- </a>
-</div>
-</div>
- <div class="project-body">
- <div class="project-section">
- <div class="project-section-title">Problem</div>
- 
- </div>
- <div class="project-section">
- <div class="project-section-title">Process</div>
- <p class="project-text">Built predictive model analyzing 18 behavioral signals using Python (logistic regression) and SQL cohort analysis. Created Power BI early-warning dashboard with automated weekly alerts.</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Outcome</div>
- <p class="project-text">Enabled proactive outreach to 200+ at-risk customers. Retention team saved 15% of flagged accounts in 3 months, preserving $240K in annual recurring revenue.</p>
- </div>
- <div class="tools-used">
- <span class="tool-tag">Python (Pandas,NumPy)</span>
- <span class="tool-tag">SQL </span>
- <span class="tool-tag">Power BI</span>
- 
- </div>
-<! - Project 2 →
- <div class="project-card">
- <div class="project-header">
- <h3 class="project-title">Operational Efficiency Dashboard</h3>
- <p class="project-impact">Cut Resolution Time by 25% | Improved CSAT by 18 Points</p>
- <div class="project-links" style="margin-top: 15px;">
- <a href="https://github.com/mahendra1729" target="_blank" class="card-link" style="color: var( - primary-color); text-decoration: none; font-weight: bold;">
- View Project 📊
- </a>
-</div>
- </div>
- <div class="project-body">
- <div class="project-section">
- <div class="project-section-title">Problem</div>
- <p class="project-text">Technical support operations drowning in 100K+ tickets with zero performance visibility across 50+ agents</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Process</div>
- <p class="project-text">Consolidated 5 SQL databases using complex joins and CTEs. Engineered 12 KPIs tracking agent productivity, ticket categorization, and bottlenecks. Designed real-time Power BI dashboard with drill-through capabilities.</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Outcome</div>
- <p class="project-text">Management identified workflow inefficiencies within first week. Reduced average resolution time from 4.2 to 3.1 days (25% improvement). Customer satisfaction score jumped from 72 to 90.</p>
- </div>
- <div class="tools-used">
- <span class="tool-tag">SQL (Joins, CTEs, Aggregations)</span>
- <span class="tool-tag">Power BI (DAX)</span>
- <span class="tool-tag">Excel</span>
- 
- </div>
-<! - Project 3 →
- <div class="project-card">
- <div class="project-header">
- <h3 class="project-title">Sales Performance Analytics Platform</h3>
- <p class="project-impact">Increased Sales by 25% | Reduced Reporting Time by 50%</p>
- <div class="project-links" style="margin-top: 15px;">
- <a href="https://github.com/mahendra1729" target="_blank" class="card-link" style="color: var( - primary-color); text-decoration: none; font-weight: bold;">
- View Project 📊
- </a>
-</div>
- </div>
- <div class="project-body">
- <div class="project-section">
- <div class="project-section-title">Problem</div>
- <p class="project-text">Sales team making decisions based on week-old data from manual Excel reports taking 8 hours to compile</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Process</div>
- <p class="project-text">Built automated Azure Data Factory ETL pipeline refreshing nightly. Created Power BI platform with 5 interactive dashboards: sales pipeline, territory performance, product mix, forecasting, and commission tracking using advanced DAX time intelligence.</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Outcome</div>
- <p class="project-text">Real-time visibility enabled data-driven territory rebalancing and product focus shifts. Sales increased 25% YoY. Reporting time dropped from 8 hours to automated 15-minute refresh. 35% increase in dashboard adoption across sales org.</p>
- </div>
- <div class="tools-used">
- <span class="tool-tag">Azure Data Factory</span>
- <span class="tool-tag">Power BI (DAX, Row-Level Security)</span>
- <span class="tool-tag">SQL</span>
- 
- </div>
-<! - Project 4 →
- <div class="project-card">
- <div class="project-header">
- <h3 class="project-title">Query Performance Optimization Initiative</h3>
- <p class="project-impact">90% Faster Queries | Saved $15K/Year in Server Costs</p>
- <div class="project-links" style="margin-top: 15px;">
- <a href="https://github.com/mahendra1729" target="_blank" class="card-link" style="color: var( - primary-color); text-decoration: none; font-weight: bold;">
- View Project 📊
- </a>
-</div>
- </div>
- <div class="project-body">
- <div class="project-section">
- <div class="project-section-title">Problem</div>
- <p class="project-text">Critical business reports timing out after 45+ seconds, blocking decision-making and frustrating 100+ daily users</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Process</div>
- <p class="project-text">Analyzed 50+ slow queries using execution plans. Implemented indexing strategy, rewrote nested subqueries as CTEs, eliminated redundant joins, and created materialized views for frequently accessed aggregations.</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Outcome</div>
- <p class="project-text">Average query time dropped from 45s to 4s (90% improvement). Report generation now instant. Reduced database server load by 40%, deferring $15K hardware upgrade. Zero timeout complaints post-optimization.</p>
- </div>
- <div class="tools-used">
- <span class="tool-tag">SQL (Indexing, Query Tuning)</span>
- <span class="tool-tag">SSMS</span>
- <span class="tool-tag">Performance Monitoring</span>
- 
- </div>
-<! - Project 5 →
- <div class="project-card">
- <div class="project-header">
- <h3 class="project-title">Healthcare Patient Flow Analysis</h3>
- <p class="project-impact">Improved Patient Throughput by 30% | Reduced Wait Times by 45 Minutes</p>
- <div class="project-links" style="margin-top: 15px;">
- <a href="https://github.com/mahendra1729" target="_blank" class="card-link" style="color: var( - primary-color); text-decoration: none; font-weight: bold;">
- View Project 📊
- </a>
-</div>
- </div>
- <div class="project-body">
- <div class="project-section">
- <div class="project-section-title">Problem</div>
- <p class="project-text">Hospital experiencing patient bottlenecks with 2-hour average wait times and no data on root causes</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Process</div>
- <p class="project-text">Performed time-series analysis on 6 months of patient flow data using Python (Pandas) and SQL window functions. Identified peak hour patterns, department bottlenecks, and staffing gaps. Visualized patient journey in Power BI with drill-down by department and time-of-day.</p>
- </div>
- <div class="project-section">
- <div class="project-section-title">Outcome</div>
- <p class="project-text">Recommended staggered shift schedule and resource reallocation. Hospital implemented changes resulting in 30% throughput improvement. Average wait time dropped from 120 to 75 minutes. Patient satisfaction scores increased 22 points.</p>
- </div>
- <div class="tools-used">
- <span class="tool-tag">Python (Pandas, Matplotlib)</span>
- <span class="tool-tag">SQL (Time-Series Analysis)</span>
- <span class="tool-tag">Power BI</span>
- 
- </div>
- </div>
- </div>
-</section>
-<! - About Section →
-<section id="about" class="about">
- <div class="container">
- <h2 class="section-title">About Me</h2>
- <div class="about-content">
- <p class="about-story">
- My journey into data analytics began with a simple question during my IT engineering degree: "Why do companies make million-dollar decisions based on gut feeling instead of evidence?" This curiosity led me to specialize in data engineering during my Master's at Southampton Solent University, where I discovered the transformative power of turning raw data into strategic advantage.
- <br><br>
- Over the past 3+ years, I've evolved from writing basic SQL queries to architecting enterprise BI solutions that influence C-suite strategy. At Concentrix and Writer Corporation, I learned that the best analysts don't just report what happened - they predict what will happen and recommend what should happen. Whether it's preventing customer churn, optimizing operations, or uncovering hidden revenue opportunities, I bring equal parts technical depth and business acumen to every analysis.
- <br><br>
- I'm passionate about democratizing data access through self-service BI tools and building systems that empower everyone - from executives to front-line staff - to make evidence-based decisions.
- </p>
-<div class="strengths-grid">
- <div class="strength-card">
- <h3 class="strength-title">🎯 Business-First Mindset</h3>
- <p class="strength-evidence">
- I don't just analyze data - I solve business problems. Every dashboard, model, and query I build answers a strategic question. Evidence: My churn prediction model directly preserved $240K in revenue; my operational dashboards enabled a 25% reduction in resolution time.
- </p>
- </div>
- <div class="strength-card">
- <h3 class="strength-title">⚡ Speed & Efficiency Obsession</h3>
- <p class="strength-evidence">
- I architect for performance, not perfection. I've reduced query times by 90%, automated 15 hours/week of manual work, and built dashboards that refresh in seconds, not hours. I understand that fast insights drive fast decisions.
- </p>
- </div>
- <div class="strength-card">
- <h3 class="strength-title">🔄 End-to-End Ownership</h3>
- <p class="strength-evidence">
- From database design to executive presentation, I own the full analytics lifecycle. I've delivered 10+ projects with 100% on-time completion and 30% higher client satisfaction because I anticipate needs, communicate proactively, and ensure adoption - not just delivery.
- </p>
- </div>
- </div>
-<div class="career-goal">
- 📈 Career Trajectory: Data Analyst → Senior BI Analyst → Analytics Engineer
- <br>
- Building the bridge between data infrastructure and business intelligence
- </div>
- </div>
- </div>
-</section>
-<! - Contact Section →
-<section id="contact" class="contact">
- <div class="container">
- <h2 class="section-title">Let's Build Something Data-Driven</h2>
- <div class="contact-content">
- <form class="contact-form" onsubmit="return false;">
- <div class="form-group">
- <label for="name">Your Name</label>
- <input type="text" id="name" name="name" required>
- </div>
- <div class="form-group">
- <label for="email">Email Address</label>
- <input type="email" id="email" name="email" required>
- </div>
- <div class="form-group">
- <label for="message">Message</label>
- <textarea id="message" name="message" required placeholder="Tell me about the business problem you're trying to solve…"></textarea>
- </div>
- <button type="submit" class="submit-btn" onclick="alert('Thank you! I will respond within 24 hours.')">Send Message</button>
- </form>
-<div class="social-links">
- <a href="https://linkedin.com/in/mahendar-pothatla-356b24243" class="social-link" target="_blank">💼 LinkedIn</a>
- <a href="https://github.com/mahendra1729" class="social-link" target="_blank">💻 GitHub</a>
- <a href="#" class="social-link" id="email-link" data-email="mahendar.analyst@gmail.com">📧 Email</a>
-</div>
-<p class="recruiter-cta">
- "See how my analysis drives decisions - not just dashboards"
- </p>
- </div>
- </div>
-</section>
-<! - Footer →
-<footer>
- <div class="container">
- <p>&copy; 2025 Mahendar Pothatla | Data Analyst | Building Insights That Matter</p>
- <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Phone: +91 8374359763 | Location: India</p>
- </div>
-</footer>
-<script>
- // Smooth scrolling
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
- anchor.addEventListener('click', function (e) {
- e.preventDefault();
- const target = document.querySelector(this.getAttribute('href'));
- if (target) {
- target.scrollIntoView({
- behavior: 'smooth',
- block: 'start'
- });
- }
- });
- });
-// Navbar shadow on scroll
- window.addEventListener('scroll', () => {
- const nav = document.querySelector('nav');
- if (window.scrollY > 50) {
- nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
- } else {
- nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
- }
- });
-// Intersection Observer for fade-in animations
- const observerOptions = {
- threshold: 0.1,
- rootMargin: '0px 0px -50px 0px'
- };
-const observer = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) {
- entry.target.style.opacity = '1';
- entry.target.style.transform = 'translateY(0)';
- }
- });
- }, observerOptions);
-// Animate elements on scroll
- document.querySelectorAll('.skill-category, .project-card, .strength-card').forEach(el => {
- el.style.opacity = '0';
- el.style.transform = 'translateY(30px)';
- el.style.transition = 'all 0.6s ease';
- observer.observe(el);
- });
- // - - Add this code - -
-// Copy to clipboard for email link
-document.getElementById('email-link').addEventListener('click', function(e) {
- e.preventDefault(); // Stop the link from jumping to the top of the page
- 
- const email = this.getAttribute('data-email');
- 
- navigator.clipboard.writeText(email).then(() => {
- // - - Success! - -
- // Give the user feedback
- const originalText = this.innerHTML;
- this.innerHTML = '✅ Copied!';
- 
- // Change it back after 2 seconds
- setTimeout(() => {
- this.innerHTML = originalText;
- }, 2000);
-}).catch(err => {
- // - - Error - -
- console.error('Failed to copy email: ', err);
- alert('Failed to copy. Please copy manually: ' + email);
- });
-});
-</script>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">
+                MAHENDAR POTHATLA
+                <span class="logo-subtitle">Data Analyst</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content container">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Available for new opportunities
+            </div>
+            <h1><span class="wave">👋</span> Welcome to My Analytics World</h1>
+            <p class="subtitle">
+                Data Analyst with 3+ years of experience transforming complex data into strategic business decisions. 
+                Specialized in advanced SQL optimization, predictive analytics, and executive-ready Power BI dashboards.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value" data-count="40">0</span>%
+                    <span class="hero-stat-label">Profit Improvement</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value" data-count="50">0</span>%
+                    <span class="hero-stat-label">Faster Processing</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value" data-count="15">0</span>%
+                    <span class="hero-stat-label">Churn Reduction</span>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button">
+                    📊 View My Projects
+                </a>
+                <a href="#contact" class="cta-button secondary">
+                    💬 Let's Connect
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#skills">
+                <div class="mouse"></div>
+                Scroll to explore
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">💡 Expertise</span>
+                <h2 class="section-title">Technical Arsenal</h2>
+                <p class="section-subtitle">A comprehensive toolkit built through hands-on experience delivering business-critical analytics solutions</p>
+            </div>
+            <div class="skills-grid">
+                <!-- Data Analysis -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">📊</div>
+                        <h3>Data Analysis</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Advanced Excel & Power Query</div>
+                        <div class="skill-example">Built dynamic financial models processing 100K+ records, reducing manual reporting time from 8 hours to 45 minutes</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Exploratory Data Analysis (EDA)</div>
+                        <div class="skill-example">Identified hidden customer segments through cohort analysis, enabling targeted campaigns that increased conversion by 22%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Statistical Analysis & A/B Testing</div>
+                        <div class="skill-example">Designed experiments validating pricing strategy changes, resulting in 18% revenue lift with 95% confidence</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">KPI Design & Tracking</div>
+                        <div class="skill-example">Created executive KPI framework monitoring 15 critical metrics, enabling real-time business health assessment</div>
+                    </div>
+                </div>
+
+                <!-- Data Engineering -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">🔧</div>
+                        <h3>Data Engineering Essentials</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">SQL Query Optimization</div>
+                        <div class="skill-example">Refactored complex joins and indexing strategies, reducing query execution time from 45s to 4s (90% improvement)</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">CTEs, Window Functions & Subqueries</div>
+                        <div class="skill-example">Built rolling 90-day revenue calculations using window functions, replacing error-prone spreadsheet formulas</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Database Design & Normalization</div>
+                        <div class="skill-example">Designed star schema data warehouse consolidating 5 operational databases, improving reporting consistency by 100%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">ETL & Data Warehousing</div>
+                        <div class="skill-example">Automated ETL pipelines using Azure Data Factory, processing 500K daily records with 99.8% accuracy</div>
+                    </div>
+                </div>
+
+                <!-- Visualization -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">📈</div>
+                        <h3>Data Storytelling & Visualization</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Power BI Dashboard Design</div>
+                        <div class="skill-example">Created executive sales dashboard adopted by C-suite, influencing $2M+ strategic decisions quarterly</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">DAX & Advanced Calculations</div>
+                        <div class="skill-example">Developed time-intelligence measures (YoY, MoM growth) and dynamic filtering, reducing ad-hoc report requests by 60%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Data Storytelling</div>
+                        <div class="skill-example">Translated churn analysis into narrative presentation that convinced leadership to invest $500K in retention program</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Self-Service BI Implementation</div>
+                        <div class="skill-example">Deployed QR-code enabled reports and Power Apps, increasing stakeholder adoption from 40% to 75%</div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">💻</div>
+                        <h3>Programming & Automation</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Python for Data Analysis</div>
+                        <div class="skill-example">Automated customer segmentation using pandas and clustering algorithms, reducing analysis time from 3 days to 2 hours</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Data Visualization (Matplotlib, Seaborn)</div>
+                        <div class="skill-example">Created correlation heatmaps revealing unexpected product bundling opportunities, generating $180K additional revenue</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Predictive Modeling (Scikit-learn)</div>
+                        <div class="skill-example">Built customer churn prediction model with 82% accuracy, enabling proactive retention efforts that saved 15% at-risk accounts</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Process Automation (Power Automate)</div>
+                        <div class="skill-example">Automated 12 repetitive data workflows, freeing 15 hours/week for strategic analysis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🚀 Portfolio</span>
+                <h2 class="section-title">Business Impact Portfolio</h2>
+                <p class="section-subtitle">Real projects that delivered measurable business outcomes through data-driven insights</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                                <!-- Project 1 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">
+                        <span class="project-number">01</span>
+                        <h3 class="project-title">Customer Churn Prevention System</h3>
+                        <div class="project-impact">
+                            <span class="project-impact-badge">15% Churn Reduction</span>
+                            <span class="project-impact-badge">$240K ARR Saved</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section">
+                            <div class="project-section-title">🎯 Problem</div>
+                            <p class="project-text">High customer attrition with no early warning system to identify at-risk accounts before they churned.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">⚙️ Process</div>
+                            <p class="project-text">Built predictive model analyzing 18 behavioral signals using Python (logistic regression) and SQL cohort analysis. Created Power BI early-warning dashboard with automated weekly alerts.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">✅ Outcome</div>
+                            <p class="project-text">Enabled proactive outreach to 200+ at-risk customers. Retention team saved 15% of flagged accounts in 3 months, preserving $240K in annual recurring revenue.</p>
+                        </div>
+                        <div class="tools-used">
+                            <span class="tool-tag">Python (Pandas, NumPy)</span>
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Power BI</span>
+                            <span class="tool-tag">Scikit-learn</span>
+                        </div>
+                        <a href="https://github.com/mahendra1729" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">
+                        <span class="project-number">02</span>
+                        <h3 class="project-title">Operational Efficiency Dashboard</h3>
+                        <div class="project-impact">
+                            <span class="project-impact-badge">25% Faster Resolution</span>
+                            <span class="project-impact-badge">+18 CSAT Points</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section">
+                            <div class="project-section-title">🎯 Problem</div>
+                            <p class="project-text">Technical support operations drowning in 100K+ tickets with zero performance visibility across 50+ agents.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">⚙️ Process</div>
+                            <p class="project-text">Consolidated 5 SQL databases using complex joins and CTEs. Engineered 12 KPIs tracking agent productivity, ticket categorization, and bottlenecks. Designed real-time Power BI dashboard with drill-through capabilities.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">✅ Outcome</div>
+                            <p class="project-text">Management identified workflow inefficiencies within first week. Reduced average resolution time from 4.2 to 3.1 days (25% improvement). Customer satisfaction score jumped from 72 to 90.</p>
+                        </div>
+                        <div class="tools-used">
+                            <span class="tool-tag">SQL (Joins, CTEs)</span>
+                            <span class="tool-tag">Power BI (DAX)</span>
+                            <span class="tool-tag">Excel</span>
+                        </div>
+                        <a href="https://github.com/mahendra1729" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">
+                        <span class="project-number">03</span>
+                        <h3 class="project-title">Sales Performance Analytics Platform</h3>
+                        <div class="project-impact">
+                            <span class="project-impact-badge">25% Sales Increase</span>
+                            <span class="project-impact-badge">50% Less Reporting Time</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section">
+                            <div class="project-section-title">🎯 Problem</div>
+                            <p class="project-text">Sales team making decisions based on week-old data from manual Excel reports taking 8 hours to compile.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">⚙️ Process</div>
+                            <p class="project-text">Built automated Azure Data Factory ETL pipeline refreshing nightly. Created Power BI platform with 5 interactive dashboards: sales pipeline, territory performance, product mix, forecasting, and commission tracking using advanced DAX time intelligence.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">✅ Outcome</div>
+                            <p class="project-text">Real-time visibility enabled data-driven territory rebalancing and product focus shifts. Sales increased 25% YoY. Reporting time dropped from 8 hours to automated 15-minute refresh. 35% increase in dashboard adoption.</p>
+                        </div>
+                        <div class="tools-used">
+                            <span class="tool-tag">Azure Data Factory</span>
+                            <span class="tool-tag">Power BI (DAX, RLS)</span>
+                            <span class="tool-tag">SQL</span>
+                        </div>
+                        <a href="https://github.com/mahendra1729" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">
+                        <span class="project-number">04</span>
+                        <h3 class="project-title">Query Performance Optimization</h3>
+                        <div class="project-impact">
+                            <span class="project-impact-badge">90% Faster Queries</span>
+                            <span class="project-impact-badge">$15K/Year Saved</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section">
+                            <div class="project-section-title">🎯 Problem</div>
+                            <p class="project-text">Critical business reports timing out after 45+ seconds, blocking decision-making and frustrating 100+ daily users.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">⚙️ Process</div>
+                            <p class="project-text">Analyzed 50+ slow queries using execution plans. Implemented indexing strategy, rewrote nested subqueries as CTEs, eliminated redundant joins, and created materialized views for frequently accessed aggregations.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">✅ Outcome</div>
+                            <p class="project-text">Average query time dropped from 45s to 4s (90% improvement). Report generation now instant. Reduced database server load by 40%, deferring $15K hardware upgrade. Zero timeout complaints post-optimization.</p>
+                        </div>
+                        <div class="tools-used">
+                            <span class="tool-tag">SQL (Indexing, Query Tuning)</span>
+                            <span class="tool-tag">SSMS</span>
+                            <span class="tool-tag">Performance Monitoring</span>
+                        </div>
+                        <a href="https://github.com/mahendra1729" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">
+                        <span class="project-number">05</span>
+                        <h3 class="project-title">Healthcare Patient Flow Analysis</h3>
+                        <div class="project-impact">
+                            <span class="project-impact-badge">30% More Throughput</span>
+                            <span class="project-impact-badge">45 Min Less Wait</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section">
+                            <div class="project-section-title">🎯 Problem</div>
+                            <p class="project-text">Hospital experiencing patient bottlenecks with 2-hour average wait times and no data on root causes.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">⚙️ Process</div>
+                            <p class="project-text">Performed time-series analysis on 6 months of patient flow data using Python (Pandas) and SQL window functions. Identified peak hour patterns, department bottlenecks, and staffing gaps. Visualized patient journey in Power BI with drill-down by department and time-of-day.</p>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-section-title">✅ Outcome</div>
+                            <p class="project-text">Recommended staggered shift schedule and resource reallocation. Hospital implemented changes resulting in 30% throughput improvement. Average wait time dropped from 120 to 75 minutes. Patient satisfaction scores increased 22 points.</p>
+                        </div>
+                        <div class="tools-used">
+                            <span class="tool-tag">Python (Pandas, Matplotlib)</span>
+                            <span class="tool-tag">SQL (Time-Series)</span>
+                            <span class="tool-tag">Power BI</span>
+                        </div>
+                        <a href="https://github.com/mahendra1729" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">👨‍💻 About</span>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Transforming data into strategic business value</p>
+            </div>
+            <div class="about-content">
+                <div class="about-intro">
+                    <div class="about-image-container">
+                        <div class="about-image">👨‍💻</div>
+                        <div class="about-decorations">📊</div>
+                    </div>
+                    <div class="about-story">
+                        <p>
+                            My journey into data analytics began with a simple question during my IT engineering degree: 
+                            <span class="highlight">"Why do companies make million-dollar decisions based on gut feeling instead of evidence?"</span> 
+                            This curiosity led me to specialize in data engineering during my Master's at Southampton Solent University, 
+                            where I discovered the transformative power of turning raw data into strategic advantage.
+                        </p>
+                        <p>
+                            Over the past <span class="highlight">3+ years</span>, I've evolved from writing basic SQL queries to 
+                            architecting enterprise BI solutions that influence C-suite strategy. At Concentrix and Writer Corporation, 
+                            I learned that the best analysts don't just report what happened — they <span class="highlight">predict what will happen</span> 
+                            and <span class="highlight">recommend what should happen</span>.
+                        </p>
+                        <p>
+                            Whether it's preventing customer churn, optimizing operations, or uncovering hidden revenue opportunities, 
+                            I bring equal parts technical depth and business acumen to every analysis. I'm passionate about 
+                            democratizing data access through self-service BI tools and building systems that empower everyone 
+                            — from executives to front-line staff — to make evidence-based decisions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="strengths-grid">
+                    <div class="strength-card animate-on-scroll">
+                        <div class="strength-icon">🎯</div>
+                        <h3 class="strength-title">Business-First Mindset</h3>
+                        <p class="strength-evidence">
+                            I don't just analyze data — I solve business problems. Every dashboard, model, and query I build answers a strategic question. 
+                            <strong>Evidence:</strong> My churn prediction model directly preserved $240K in revenue; my operational dashboards enabled a 25% reduction in resolution time.
+                        </p>
+                    </div>
+                    <div class="strength-card animate-on-scroll">
+                        <div class="strength-icon">⚡</div>
+                        <h3 class="strength-title">Speed & Efficiency Obsession</h3>
+                        <p class="strength-evidence">
+                            I architect for performance, not perfection. I've reduced query times by 90%, automated 15 hours/week of manual work, 
+                            and built dashboards that refresh in seconds, not hours. <strong>I understand that fast insights drive fast decisions.</strong>
+                        </p>
+                    </div>
+                    <div class="strength-card animate-on-scroll">
+                        <div class="strength-icon">🔄</div>
+                        <h3 class="strength-title">End-to-End Ownership</h3>
+                        <p class="strength-evidence">
+                            From database design to executive presentation, I own the full analytics lifecycle. I've delivered 10+ projects with 
+                            100% on-time completion and 30% higher client satisfaction because I anticipate needs, communicate proactively, 
+                            and ensure <strong>adoption — not just delivery</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="career-goal animate-on-scroll">
+                    <div class="career-goal-content">
+                        <div class="career-goal-icon">📈</div>
+                        <h3>Career Trajectory</h3>
+                        <p>Building the bridge between data infrastructure and business intelligence</p>
+                        <div class="career-path">
+                            <span class="career-step">Data Analyst</span>
+                            <span class="career-arrow">→</span>
+                            <span class="career-step">Senior BI Analyst</span>
+                            <span class="career-arrow">→</span>
+                            <span class="career-step">Analytics Engineer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">📬 Contact</span>
+                <h2 class="section-title">Let's Build Something Data-Driven</h2>
+                <p class="section-subtitle">Have a business problem that needs data insights? Let's connect!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📧</div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p><a href="mailto:mahendar.analyst@gmail.com">mahendar.analyst@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📱</div>
+                            <div class="contact-item-content">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+918374359763">+91 8374359763</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <div class="contact-item-content">
+                                <h4>Location</h4>
+                                <p>India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">💼</div>
+                            <div class="contact-item-content">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://linkedin.com/in/mahendar-pothatla-356b24243" target="_blank">Connect with me</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about the business problem you're trying to solve…" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message 🚀
+                        </button>
+                    </form>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/mahendar-pothatla-356b24243" class="social-link" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/mahendra1729" class="social-link" target="_blank">
+                        💻 GitHub
+                    </a>
+                    <a href="#" class="social-link" id="email-link" data-email="mahendar.analyst@gmail.com">
+                        📧 Copy Email
+                    </a>
+                </div>
+
+                <div class="recruiter-cta">
+                    <p>"See how my analysis drives decisions — not just dashboards"</p>
+                    <span>Ready to bring data-driven insights to your team</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MAHENDAR POTHATLA</div>
+                <p class="footer-text">Data Analyst | Building Insights That Matter</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p class="footer-text">© 2025 Mahendar Pothatla. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for hero stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        };
+
+        // Trigger counter animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.hero-stat-value').forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, target);
+                    });
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        heroObserver.observe(document.querySelector('.hero'));
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:mahendar.analyst@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open default mail client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Opening your email client to send the message. If it doesn\'t open, please email me directly at mahendar.analyst@gmail.com');
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Copy email to clipboard
+        document.getElementById('email-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = this.getAttribute('data-email');
+            
+            navigator.clipboard.writeText(email).then(() => {
+                const originalText = this.innerHTML;
+                this.innerHTML = '✅ Copied!';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email: ', err);
+                alert('Email: ' + email);
+            });
+        });
+
+        // Add loading animation class removal
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Parallax effect for hero particles (subtle)
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                const xOffset = (x - 0.5) * speed * 20;
+                const yOffset = (y - 0.5) * speed * 20;
+                particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
